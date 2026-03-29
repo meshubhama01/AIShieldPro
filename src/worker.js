@@ -55,7 +55,7 @@ async function handleWaitlist(request, env) {
   const email = clean(formData.get("email"));
   const interest = clean(formData.get("interest"));
   const message = clean(formData.get("message"));
-  const turnstileToken = clean(formData.get("cf-turnstile-response"));
+  const turnstileToken = cleanToken(formData.get("cf-turnstile-response"));
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
 
   if (!email || !isValidEmail(email)) {
@@ -135,6 +135,10 @@ async function handleWaitlist(request, env) {
 
 function clean(value) {
   return String(value || "").trim().slice(0, 500);
+}
+
+function cleanToken(value) {
+  return String(value || "").trim();
 }
 
 function isValidEmail(email) {
