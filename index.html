@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -23,81 +23,162 @@
   </head>
   <body>
     <div class="page-shell">
-      <div class="noise"></div>
-      <div class="orb orb-one"></div>
-      <div class="orb orb-two"></div>
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+      <div class="mesh-overlay"></div>
+
+      <header class="site-header">
+        <div class="logo-mark">
+          <span class="logo-core"></span>
+          <span>AI ShieldPro</span>
+        </div>
+        <div class="header-pill">Private Preview 2026</div>
+      </header>
 
       <main class="content-stack">
-        <section class="hero-card">
-          <div class="eyebrow">AI Security. Reimagined.</div>
-          <p class="brand">AI ShieldPro</p>
-          <h1>Something powerful is coming soon.</h1>
-          <p class="copy">
-            We are building a sharper layer of protection for modern AI systems.
-            The first public experience for <span>aishieldpro.com</span> is on the way.
-          </p>
+        <section class="hero-grid">
+          <div class="hero-copy hero-card reveal-on-scroll">
+            <div class="eyebrow">AI x Cyber Defense</div>
+            <p class="brand">AI ShieldPro</p>
+            <h1>Quiet by design. Serious by default.</h1>
+            <p class="copy">
+              AI ShieldPro is shaping a more elegant security layer for the next
+              generation of AI agents, model workflows, and autonomous systems.
+              Calm interface, hard edges, and modern protection where intelligence meets exposure.
+            </p>
 
-          <form class="waitlist-form" id="waitlist-form">
-            <label class="form-field">
-              <span>Email address</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="you@company.com"
-                autocomplete="email"
-                required
-              />
-            </label>
+            <p class="hero-note">
+              Built for teams that want less dashboard noise and more trust around AI behavior.
+            </p>
 
-            <label class="form-field form-field-wide">
-              <span>What are you most interested in?</span>
-              <select name="interest" required>
-                <option value="">Choose one</option>
-                <option value="Shield-MCP">Shield-MCP</option>
-                <option value="Agentic Intel Report">Agentic Intel Report</option>
-                <option value="Both">Both</option>
-              </select>
-            </label>
-
-            <label class="form-field form-field-wide">
-              <span>Optional note</span>
-              <textarea
-                name="message"
-                rows="3"
-                maxlength="500"
-                placeholder="Tell us what you want to protect or monitor."
-              ></textarea>
-            </label>
-
-            <div class="form-field form-field-wide">
-              <span>Verification</span>
-              <div id="turnstile-container" class="turnstile-shell"></div>
+            <div class="hero-signature">
+              <span></span>
+              <p>
+                Security for the age of agents, rendered with restraint.
+              </p>
             </div>
 
-            <div class="form-actions">
-              <button class="action-button" type="submit">Request Early Access</button>
-            </div>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="signal-row" aria-label="Launch status indicators">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="status-panel">
-            <div>
-              <p class="status-label">Launch status</p>
-              <p class="status-value">Preparing the shield</p>
-            </div>
-            <div class="pulse-ring" aria-hidden="true">
-              <div class="pulse-core"></div>
+            <div class="status-panel">
+              <div>
+                <p class="status-label">Launch status</p>
+                <p class="status-value">Preparing the shield</p>
+              </div>
+              <div class="pulse-ring" aria-hidden="true">
+                <div class="pulse-core"></div>
+              </div>
             </div>
           </div>
+
+          <aside class="hero-card form-panel reveal-on-scroll">
+            <div class="panel-topline">Request Early Access</div>
+            <h2>Get on the first wave.</h2>
+            <p class="panel-copy">
+              Join the waitlist for private access to Shield-MCP, the Agentic Intel Report,
+              and future releases.
+            </p>
+            <p class="panel-subtle">For founders, operators, and security teams moving early.</p>
+
+            <form class="waitlist-form" id="waitlist-form">
+              <label class="form-field">
+                <span>Email address</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@company.com"
+                  autocomplete="email"
+                  required
+                />
+              </label>
+
+              <label class="form-field">
+                <span>Interest</span>
+                <select name="interest" required>
+                  <option value="">Choose one</option>
+                  <option value="Shield-MCP">Shield-MCP</option>
+                  <option value="Agentic Intel Report">Agentic Intel Report</option>
+                  <option value="Both">Both</option>
+                </select>
+              </label>
+
+              <label class="form-field form-field-wide">
+                <span>Tell us what matters most</span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  maxlength="500"
+                  placeholder="Prompt injection defense, threat monitoring, AI governance, or red-team coverage."
+                ></textarea>
+              </label>
+
+              <div class="form-field form-field-wide">
+                <span>Verification</span>
+                <div id="turnstile-container" class="turnstile-shell"></div>
+              </div>
+
+              <div class="form-actions">
+                <button class="action-button" type="submit">
+                  <span>Request Early Access</span>
+                  <span class="button-glow"></span>
+                </button>
+              </div>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </aside>
         </section>
 
-        <section class="map-card">
+        <section class="product-grid">
+          <article class="product-card reveal-on-scroll">
+            <div class="product-topline">Core Platform</div>
+            <h2>Shield-MCP</h2>
+            <p>
+              A safety wrapper for AI agent workflows that screens risky output,
+              catches prompt injection patterns, and adds lightweight runtime guardrails
+              before external tool responses reach the model.
+            </p>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-topline">Intelligence Layer</div>
+            <h2>Agentic Intel Report</h2>
+            <p>
+              A curated intelligence layer focused on AI-native threats, shadow AI
+              exposure, jailbreak trends, leaky MCP implementations, and emerging
+              attack paths that matter to operators.
+            </p>
+          </article>
+        </section>
+
+        <section class="story-grid">
+          <article class="story-card reveal-on-scroll">
+            <p class="section-kicker">What We Build</p>
+            <h3>Guardrails for a world where AI can act.</h3>
+            <p>
+              AI ShieldPro is building focused defenses for agentic systems,
+              from prompt injection resilience to runtime trust signals and
+              threat intelligence tuned for modern AI operations.
+            </p>
+          </article>
+
+          <article class="story-card reveal-on-scroll">
+            <p class="section-kicker">Design Principle</p>
+            <h3>Luxury-grade clarity.</h3>
+            <p>
+              Minimal where it should be, alive where it matters. The product
+              vision sits between precision engineering and modern threat defense.
+            </p>
+          </article>
+
+          <article class="story-card reveal-on-scroll">
+            <p class="section-kicker">Why It Matters</p>
+            <h3>Less noise. More signal.</h3>
+            <p>
+              Security teams do not need another dashboard. They need faster trust
+              decisions, clearer telemetry, and sharper defense around AI behavior.
+            </p>
+          </article>
+        </section>
+
+        <section class="map-card reveal-on-scroll">
           <div class="map-header">
             <div>
               <p class="section-kicker">Global Visibility</p>
@@ -106,6 +187,21 @@
             <p class="map-note">
               Third-party public cyber telemetry for visual awareness. Not AI ShieldPro customer incident data.
             </p>
+          </div>
+
+          <div class="map-intro">
+            <div class="intro-stat">
+              <span>Layer</span>
+              <strong>Public telemetry</strong>
+            </div>
+            <div class="intro-stat">
+              <span>Use</span>
+              <strong>Ambient threat awareness</strong>
+            </div>
+            <div class="intro-stat">
+              <span>Signal</span>
+              <strong>Modern attack motion</strong>
+            </div>
           </div>
 
           <div class="map-frame">
@@ -119,6 +215,14 @@
           </div>
         </section>
       </main>
+
+      <footer class="site-footer reveal-on-scroll">
+        <div class="footer-brand">
+          <span class="logo-core"></span>
+          <span>AI ShieldPro</span>
+        </div>
+        <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+      </footer>
     </div>
 
     <script src="./script.js"></script>

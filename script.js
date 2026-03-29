@@ -2,6 +2,7 @@ const heroCard = document.querySelector(".hero-card");
 const waitlistForm = document.querySelector("#waitlist-form");
 const formStatus = document.querySelector("#form-status");
 const turnstileContainer = document.querySelector("#turnstile-container");
+const revealNodes = document.querySelectorAll(".reveal-on-scroll");
 let turnstileWidgetId = null;
 let turnstileReady = false;
 let turnstileToken = "";
@@ -12,6 +13,7 @@ if (heroCard) {
   });
 }
 
+initializeRevealAnimations();
 initializeTurnstile();
 
 if (waitlistForm && formStatus) {
@@ -123,4 +125,26 @@ function waitForTurnstile() {
 
     check();
   });
+}
+
+function initializeRevealAnimations() {
+  if (!revealNodes.length) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.14
+    }
+  );
+
+  revealNodes.forEach((node) => observer.observe(node));
 }
