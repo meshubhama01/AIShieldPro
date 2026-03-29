@@ -32,6 +32,45 @@
             The first public experience for <span>aishieldpro.com</span> is on the way.
           </p>
 
+          <form class="waitlist-form" id="waitlist-form">
+            <label class="form-field">
+              <span>Email address</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label class="form-field form-field-wide">
+              <span>What are you most interested in?</span>
+              <select name="interest" required>
+                <option value="">Choose one</option>
+                <option value="Shield-MCP">Shield-MCP</option>
+                <option value="Agentic Intel Report">Agentic Intel Report</option>
+                <option value="Both">Both</option>
+              </select>
+            </label>
+
+            <label class="form-field form-field-wide">
+              <span>Optional note</span>
+              <textarea
+                name="message"
+                rows="3"
+                maxlength="500"
+                placeholder="Tell us what you want to protect or monitor."
+              ></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="action-button" type="submit">Request Early Access</button>
+              <p class="form-meta">Stored securely through Cloudflare Pages and KV.</p>
+            </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+
           <div class="signal-row" aria-label="Launch status indicators">
             <span></span>
             <span></span>

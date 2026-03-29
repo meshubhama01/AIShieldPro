@@ -198,6 +198,77 @@ h1 {
   color: var(--text);
 }
 
+.waitlist-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(149, 224, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.form-field span {
+  color: #d4ebf6;
+  font-size: 0.9rem;
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.waitlist-form input,
+.waitlist-form select,
+.waitlist-form textarea {
+  width: 100%;
+  border: 1px solid rgba(149, 224, 255, 0.16);
+  border-radius: 14px;
+  padding: 14px 15px;
+  background: rgba(2, 10, 18, 0.8);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.waitlist-form input::placeholder,
+.waitlist-form textarea::placeholder {
+  color: #7ea4b6;
+}
+
+.waitlist-form input:focus,
+.waitlist-form select:focus,
+.waitlist-form textarea:focus {
+  border-color: rgba(126, 240, 200, 0.55);
+  box-shadow: 0 0 0 3px rgba(126, 240, 200, 0.12);
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.form-meta {
+  margin: 0;
+  color: #8db5c7;
+  font-size: 0.92rem;
+}
+
+.form-status {
+  grid-column: 1 / -1;
+  min-height: 1.4em;
+  margin: 0;
+  color: var(--accent);
+}
+
 .section-kicker {
   margin: 0 0 8px;
   color: var(--accent);
@@ -398,6 +469,15 @@ h1 {
 
   .map-card {
     padding: 20px;
+  }
+
+  .waitlist-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .status-panel {
