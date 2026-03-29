@@ -462,6 +462,7 @@ h3 {
 
 .product-card {
   position: relative;
+  display: block;
   border: 1px solid var(--line);
   border-radius: 28px;
   background:
@@ -479,10 +480,62 @@ h3 {
 }
 
 .product-card {
+  overflow: hidden;
+  min-height: 260px;
   padding: 24px 26px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(146, 243, 219, 0.26);
+  box-shadow:
+    0 26px 66px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.product-visual {
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.product-card-mcp .product-visual {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(74, 216, 255, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 45%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 34px);
+}
+
+.product-card-intel .product-visual {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(146, 243, 219, 0.16), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 26px);
+}
+
+.product-card-engine .product-visual {
+  background:
+    radial-gradient(circle at 30% 80%, rgba(86, 177, 255, 0.15), transparent 30%),
+    linear-gradient(125deg, rgba(255, 255, 255, 0.03), transparent 46%),
+    linear-gradient(90deg, transparent 0 48%, rgba(255, 255, 255, 0.03) 48% 52%, transparent 52% 100%);
+}
+
+.product-card-sim .product-visual {
+  background:
+    radial-gradient(circle at 75% 70%, rgba(146, 243, 219, 0.14), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 48%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 22px);
 }
 
 .product-topline {
+  position: relative;
   color: var(--accent);
   font-size: 0.78rem;
   letter-spacing: 0.14em;
@@ -490,12 +543,28 @@ h3 {
 }
 
 .product-card h2 {
+  position: relative;
   margin: 10px 0 14px;
 }
 
 .product-card p {
+  position: relative;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.product-meta {
+  position: relative;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #d8e6ee;
+  font-size: 0.85rem;
+}
+
+.product-meta span:first-child {
+  color: var(--accent);
 }
 
 .story-grid {
