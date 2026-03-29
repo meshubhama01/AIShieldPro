@@ -1,6 +1,20 @@
-export async function onRequestPost(context) {
-  const { request, env } = context;
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
+    if (url.pathname === "/api/waitlist" && request.method === "POST") {
+      return handleWaitlist(request, env);
+    }
+
+    if (env.ASSETS) {
+      return env.ASSETS.fetch(request);
+    }
+
+    return new Response("Asset binding is not configured.", { status: 500 });
+  }
+};
+
+async function handleWaitlist(request, env) {
   if (!env.WAITLIST) {
     return json(
       { error: "Waitlist storage is not configured yet." },
