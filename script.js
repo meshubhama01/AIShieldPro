@@ -4,6 +4,7 @@ const formStatus = document.querySelector("#form-status");
 const turnstileContainer = document.querySelector("#turnstile-container");
 let turnstileWidgetId = null;
 let turnstileReady = false;
+let turnstileToken = "";
 
 if (heroCard) {
   window.requestAnimationFrame(() => {
@@ -25,13 +26,12 @@ if (waitlistForm && formStatus) {
       return;
     }
 
-    const token = window.turnstile.getResponse(turnstileWidgetId);
-    if (!token) {
+    if (!turnstileToken) {
       formStatus.textContent = "Please complete the verification check.";
       return;
     }
 
-    formData.append("cf-turnstile-response", token);
+    formData.append("cf-turnstile-response", turnstileToken);
     formStatus.textContent = "Submitting...";
     if (submitButton) {
       submitButton.disabled = true;
@@ -56,6 +56,7 @@ if (waitlistForm && formStatus) {
       formStatus.textContent = error.message || "Something went wrong. Please try again.";
     } finally {
       if (window.turnstile && turnstileWidgetId !== null) {
+        turnstileToken = "";
         window.turnstile.reset(turnstileWidgetId);
       }
       if (submitButton) {
@@ -83,7 +84,16 @@ async function initializeTurnstile() {
     await waitForTurnstile();
     turnstileWidgetId = window.turnstile.render("#turnstile-container", {
       sitekey: payload.turnstileSiteKey,
-      theme: "dark"
+      theme: "dark",
+      callback(token) {
+        turnstileToken = token;
+      },
+      "expired-callback"() {
+        turnstileToken = "";
+      },
+      "error-callback"() {
+        turnstileToken = "";
+      }
     });
     turnstileReady = true;
   } catch (error) {

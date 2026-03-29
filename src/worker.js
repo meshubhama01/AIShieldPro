@@ -70,6 +70,7 @@ async function handleWaitlist(request, env) {
     return json({ error: "Please complete the verification check." }, 400);
   }
 
+  console.error("Turnstile token length", String(turnstileToken.length));
   const passedTurnstile = await verifyTurnstile(turnstileToken, ip, env.TURNSTILE_SECRET_KEY);
   if (!passedTurnstile) {
     return json({ error: "Verification failed. Please try again." }, 400);
