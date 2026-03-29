@@ -1,23 +1,31 @@
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
+    try {
+      const url = new URL(request.url);
 
-    if (url.pathname === "/api/config" && request.method === "GET") {
+      if (url.pathname === "/api/config" && request.method === "GET") {
+        return json(
+          { turnstileSiteKey: env.TURNSTILE_SITE_KEY || "" },
+          200
+        );
+      }
+
+      if (url.pathname === "/api/waitlist" && request.method === "POST") {
+        return handleWaitlist(request, env);
+      }
+
+      if (env.ASSETS) {
+        return env.ASSETS.fetch(request);
+      }
+
+      return new Response("Asset binding is not configured.", { status: 500 });
+    } catch (error) {
+      console.error("Unhandled worker error", stringifyError(error));
       return json(
-        { turnstileSiteKey: env.TURNSTILE_SITE_KEY || "" },
-        200
+        { error: "Something failed on the server. Please try again shortly." },
+        500
       );
     }
-
-    if (url.pathname === "/api/waitlist" && request.method === "POST") {
-      return handleWaitlist(request, env);
-    }
-
-    if (env.ASSETS) {
-      return env.ASSETS.fetch(request);
-    }
-
-    return new Response("Asset binding is not configured.", { status: 500 });
   }
 };
 
@@ -101,13 +109,22 @@ async function handleWaitlist(request, env) {
 
   await env.WAITLIST.put(`lead:${id}`, JSON.stringify(record));
   await env.WAITLIST.put(`email:${email.toLowerCase()}`, id);
-  await sendBrevoEmail({
-    apiKey: env.BREVO_API_KEY,
-    senderEmail: env.BREVO_SENDER_EMAIL,
-    senderName: env.BREVO_SENDER_NAME,
-    to: email,
-    leadCount
-  });
+
+  try {
+    await sendBrevoEmail({
+      apiKey: env.BREVO_API_KEY,
+      senderEmail: env.BREVO_SENDER_EMAIL,
+      senderName: env.BREVO_SENDER_NAME,
+      to: email,
+      leadCount
+    });
+  } catch (error) {
+    console.error("Brevo email failed", stringifyError(error));
+    return json(
+      { error: "Your signup was stored, but email delivery is not configured correctly yet." },
+      500
+    );
+  }
 
   return json(
     { ok: true, message: "Thank you. Check your inbox for your waitlist confirmation." },
@@ -144,6 +161,9 @@ async function verifyTurnstile(token, ip, secret) {
   }
 
   const payload = await response.json();
+  if (!payload.success) {
+    console.error("Turnstile verification failed", JSON.stringify(payload));
+  }
   return Boolean(payload.success);
 }
 
@@ -196,6 +216,18 @@ async function sendBrevoEmail({ apiKey, senderEmail, senderName, to, leadCount }
 function hashKey(value) {
   const bytes = new TextEncoder().encode(value);
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function stringifyError(error) {
+  if (error instanceof Error) {
+    return JSON.stringify({
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    });
+  }
+
+  return JSON.stringify(error);
 }
 
 function json(body, status) {
