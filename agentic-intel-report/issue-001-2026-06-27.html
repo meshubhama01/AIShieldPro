@@ -216,93 +216,67 @@
     </header>
 
     <article class="article">
-      ```html
-<h2>Agentic Intel Report - Issue #1 | June 27, 2026</h2>
+      <h2>Agentic Intel Report | June 27, 2026</h2>
 <p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
 
 <hr>
 
 <h3>This Week's Signal</h3>
-<p><em>The rapid evolution of AI agents and their integration into development workflows introduces novel attack vectors, from code execution via MCP to sophisticated prompt injection designed to evade analysis.</em></p>
-
-<hr>
-
-<h3>MCP & Agentic Threats</h3>
-
-<h4><a href="https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html">Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs</a></h4>
-<p>A critical flaw (CVE-2026-12957) in Amazon Q Developer allowed malicious repositories to execute commands and exfiltrate cloud credentials by exploiting Model Context Protocol (MCP) configurations. This highlights the risk of trusting AI-assisted development tools with sensitive environments, as a simple repository interaction could lead to full compromise. While patched, it underscores the need for strict access controls and input validation for AI agents interacting with development infrastructure.</p>
-<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
+<p><em>Multiple high-severity flaws in AI-related systems, including Amazon Q Developer and Cisco Catalyst SD-WAN, have been exploited to gain unauthorized access and execute arbitrary commands, highlighting the increasing threat landscape for AI-native systems.</em></p>
 
 <hr>
 
 <h3>Jailbreak & Prompt Injection</h3>
 
 <h4><a href="https://thehackernews.com/2026/06/new-gaslight-macos-malware-uses-prompt.html">New Gaslight macOS Malware Uses Prompt Injection to Disrupt AI-Assisted Analysis</a></h4>
-<p>The Gaslight malware for macOS employs prompt injection to actively deceive AI-powered malware analysis tools, causing them to abort or refuse analysis. This demonstrates a sophisticated adversarial technique that directly targets the integrity of AI security tooling. Practitioners should be aware that AI analysis pipelines themselves are becoming targets, necessitating robust validation and human oversight.</p>
+<p>A previously undocumented Rust-based macOS implant and information stealer, codenamed Gaslight, has been found to embed a prompt injection payload designed to trick AI tools into aborting or refusing analysis. This malware demonstrates the evolving threat landscape for AI-assisted security analysis. Practitioners should be aware of the potential for AI-specific evasion techniques.</p>
 <p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
-
-<hr>
-
-<h3>MCP & Agentic Threats</h3>
-
-<h4><a href="https://thehackernews.com/2026/06/dawn-of-apex-agentic-adversary.html">Dawn of the Apex Agentic Adversary</a></h4>
-<p>This piece signals a paradigm shift from human-speed threats to agentic adversaries operating at machine speed. The traditional patch cycle is becoming obsolete as AI agents can identify, exploit, and propagate threats far faster than human defenders can react. This necessitates a move towards proactive, automated defense mechanisms and continuous monitoring.</p>
-<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
-
-<hr>
-
-<h3>MCP & Agentic Threats</h3>
-
-<h4><a href="https://simonwillison.net/2026/Jun/25/ai-and-liability/#atom-everything">AI and Liability</a></h4>
-<p>A German ruling holding Google liable for false answers in AI overviews establishes a critical precedent: AI agents are extensions of the deploying entity, and thus the entity is liable for their outputs. This has significant implications for organizations deploying AI agents, as they will be legally responsible for any inaccuracies or harms caused by their AI systems, similar to human employees.</p>
-<p style="font-size:12px;color:#9ca3af;">Source: Simon Willison | June 27, 2026</p>
-
-<hr>
-
-<h3>Jailbreak & Prompt Injection</h3>
 
 <h4><a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything">Prompt Injection as Role Confusion</a></h4>
-<p>Research into prompt injection frames it as a "role confusion" problem, where AI models struggle to differentiate privileged system instructions from untrusted user input. This work highlights the fundamental challenges in aligning AI agent behavior and securing their internal instruction sets. Understanding this dynamic is crucial for developing more robust defenses against sophisticated prompt injection attacks.</p>
+<p>Research into prompt injection as a form of role confusion highlights the challenge of having models distinguish between privileged text and untrusted user input. This vulnerability can be exploited to manipulate AI models, emphasizing the need for robust input validation and model testing. Practitioners should prioritize securing AI interfaces against such attacks.</p>
 <p style="font-size:12px;color:#9ca3af;">Source: Simon Willison | June 27, 2026</p>
 
 <hr>
 
 <h3>MCP & Agentic Threats</h3>
 
-<h4><a href="https://simonwillison.net/2026/Jun/21/temporary-cloudflare-accounts/#atom-everything">Temporary Cloudflare Accounts for AI agents</a></h4>
-<p>Cloudflare's introduction of temporary, account-less deployments for Workers projects, while marketed for AI agents, offers a glimpse into ephemeral infrastructure patterns. This capability could be leveraged by attackers for rapid, untraceable deployment of malicious code or for testing exploits without leaving persistent digital footprints. Security teams should monitor for the emergence of such ephemeral infrastructure in threat actor activity.</p>
+<h4><a href="https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html">Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs</a></h4>
+<p>A high-severity flaw in Amazon Q Developer allowed malicious repositories to run commands and steal cloud credentials via Model Context Protocol (MCP) servers. This vulnerability, tracked as CVE-2026-12957, highlights the risks associated with MCP configurations and the need for secure development practices. Practitioners should review their MCP implementations for similar vulnerabilities.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
+
+<h4><a href="https://thehackernews.com/2026/06/dawn-of-apex-agentic-adversary.html">Dawn of the Apex Agentic Adversary</a></h4>
+<p>The increasing speed and sophistication of threats, particularly those leveraging AI, signal a new era in cybersecurity. The traditional rhythm of bug discovery, CVE cataloging, and patch deployment is being disrupted by the emergence of apex agentic adversaries. Practitioners must adapt their strategies to keep pace with these evolving threats.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
+
+<h4><a href="https://simonwillison.net/2026/Jun/25/ai-and-liability/#atom-everything">AI and Liability</a></h4>
+<p>A recent German ruling holds Google liable for errors in its AI-generated summaries, emphasizing the legal implications of AI deployment. This decision underscores the importance of considering liability when developing and deploying AI systems, particularly in contexts where accuracy and reliability are critical.</p>
 <p style="font-size:12px;color:#9ca3af;">Source: Simon Willison | June 27, 2026</p>
+
+<h4><a href="https://simonwillison.net/2026/Jun/21/temporary-cloudflare-accounts/#atom-everything">Temporary Cloudflare Accounts for AI agents</a></h4>
+<p>Cloudflare's introduction of temporary accounts for AI agents, allowing for ephemeral project deployment without a full account, presents both opportunities and risks. While this feature can facilitate AI development and testing, it also raises concerns about the potential for malicious actors to leverage these temporary accounts for unauthorized activities.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: Simon Willison | June 27, 2026</p>
+
+<hr>
+
+<h3>General Security Signal</h3>
+
+<h4><a href="https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html">Cisco Catalyst SD-WAN Zero-Day CVE-2026-20245 Exploited to Gain Root Access</a></h4>
+<p>A zero-day exploit of a Cisco Catalyst SD-WAN vulnerability, tracked as CVE-2026-20245, allowed an attacker to gain root access. This incident highlights the importance of prompt patching and the need for organizations to stay vigilant against zero-day attacks, particularly in critical infrastructure.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 27, 2026</p>
 
 <hr>
 
 <h3>Practitioner Take</h3>
-<p>This week's intel confirms that AI agents are no longer just a development aid but a direct attack surface. The Amazon Q MCP vulnerability and the Gaslight malware's prompt injection reveal that critical infrastructure and security tooling are now prime targets. The emergence of agentic adversaries operating at machine speed, coupled with the legal liability for AI outputs, demands a fundamental shift in security posture. We must move beyond reactive patching to proactive, AI-aware defense strategies that account for the inherent complexities of AI alignment and the potential for AI systems to be subverted or to cause harm.</p>
+<p>This week's signals collectively point to an escalating threat landscape for AI-native systems, with vulnerabilities in MCP configurations, prompt injection attacks, and the emergence of apex agentic adversaries. The risk of unauthorized access and manipulation of AI systems is increasing. To mitigate these risks, practitioners should prioritize secure development practices, including robust input validation and model testing, and stay informed about the latest vulnerabilities and exploits. Implementing a defense-in-depth strategy that includes regular security audits and prompt patching of vulnerabilities is crucial.</p>
 
 <hr>
 
 <h3>Hunt Query of the Week</h3>
-<p>Detecting unauthorized ephemeral deployments or suspicious command execution within development environments is critical. This KQL query aims to identify potential shadow AI tool usage by looking for common patterns of ephemeral deployment tools or unusual command invocations in Azure Activity Logs.</p>
-<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
-AzureActivity
-| where OperationName == "Microsoft.Resources/deployments/write"
-| where Properties contains "temporary" or Properties contains "ephemeral" or Properties contains "wrangler deploy --temporary"
-| project TimeGenerated, Caller, ResourceGroup, Properties
-| union (
-    AzureActivity
-    | where OperationName == "Microsoft.Compute/virtualMachines/runCommand/action"
-    | where Properties contains "npx wrangler" or Properties contains "deploy --temporary"
-    | project TimeGenerated, Caller, ResourceGroup, Properties
-)
-| extend DeploymentType = case(
-    Properties contains "wrangler deploy --temporary", "Ephemeral Worker Deployment",
-    Properties contains "temporary", "Temporary Resource Deployment",
-    Properties contains "ephemeral", "Ephemeral Resource Deployment",
-    "Unknown"
-)
-| project TimeGenerated, Caller, ResourceGroup, DeploymentType, Properties
-| summarize count() by Caller, DeploymentType, bin(TimeGenerated, 1d)
-| where count_ &gt; 2 // Adjust threshold for noise
-</pre>
+<p>To detect potential shadow AI tool usage in Microsoft Sentinel, use the following KQL query:</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">SecurityEvent
+| where EventID == 4688
+| where CommandLine contains "python" and CommandLine contains "ai" or CommandLine contains "ml"
+| summarize count() by bin(Timestamp, 1h)</pre>
 
 <hr>
 
@@ -310,7 +284,6 @@ AzureActivity
 Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
 Forward to a practitioner who needs this signal.
 </p>
-```
 
       <div class="subscribe">
         Get this briefing in your inbox every week
