@@ -204,6 +204,39 @@ body::before {
   font-size: 1rem;
 }
 
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.report-primary,
+.report-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.report-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #031017;
+}
+
+.report-secondary {
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .product-scene {
   overflow: hidden;
   min-height: 520px;
