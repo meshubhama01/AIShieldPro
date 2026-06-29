@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - June 29, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | June 29, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p><em>The increasing sophistication of AI agents and their inherent vulnerabilities, from prompt manipulation to system prompt exfiltration, presents a rapidly evolving threat landscape requiring new defensive paradigms.</em></p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2510.10271">MetaBreak: Jailbreaking Online LLM Services via Special Token Manipulation</a></h4>
+<p>Researchers demonstrate a novel attack vector, MetaBreak, that leverages special tokens in LLM fine-tuning to bypass safety alignments and content moderation. This technique allows for reliable circumvention of defenses by manipulating the LLM's internal conversational structure. Expect to see this or similar methods targeting the metadata layer of LLM interactions.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | June 29, 2026</p>
+
+<hr>
+
+<h4><a href="https://thehackernews.com/2026/06/new-gaslight-macos-malware-uses-prompt.html">New Gaslight macOS Malware Uses Prompt Injection to Disrupt AI-Assisted Analysis</a></h4>
+<p>A new Rust-based macOS implant, codenamed Gaslight, employs prompt injection to deceive AI-powered malware analysis tools. By injecting malicious prompts, the malware can cause analysis tools to abort or refuse to process the artifact, effectively hiding its malicious payload. This highlights the growing threat of AI systems being subverted by their own intended use cases.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 29, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2601.21233">Just Ask: Curious Code Agents Reveal System Prompts in Frontier LLMs</a></h4>
+<p>Autonomous code agents, while powerful, introduce a significant attack surface by enabling systematic probing for hidden system prompts. The JustAsk framework demonstrates that these prompts, which guide model behavior, can be autonomously discovered through agentic interaction alone. This poses a direct risk to the integrity and security of AI agent configurations.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | June 29, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2606.18142">Your AI Travel Agent Would Book You a Bullfight: An Agentic Benchmark for Implicit Animal Welfare in Frontier AI Models</a></h4>
+<p>This research introduces TAC, the first agentic benchmark to evaluate implicit animal welfare in AI models acting as agents. It moves beyond simple Q&A to assess whether AI agents avoid exploitative actions when booking travel or performing other tasks. This signals a broader trend of evaluating AI agent behavior in real-world, action-oriented scenarios, extending beyond textual safety.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | June 29, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2606.25836">AI Snitches Get Glitches: Towards Evading Agentic Surveillance</a></h4>
+<p>The paper formalizes agentic surveillance, where AI agents can analyze data, craft reports, and exfiltrate information using available tools, posing a significant risk to user data privacy. The development of benchmarks like SurveilBen aims to evaluate these surveillance capabilities, highlighting the potential for AI agents to be weaponized for covert data collection.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | June 29, 2026</p>
+
+<hr>
+
+<h4><a href="https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html">Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs</a></h4>
+<p>A critical vulnerability (CVE-2026-12957) in Amazon Q Developer allowed malicious repositories to execute commands and steal cloud credentials by exploiting how the AI assistant handled Model Context Protocol (MCP) servers. This incident underscores the risks associated with integrating AI coding assistants directly into development workflows and the need for robust validation of their interactions with sensitive environments.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 29, 2026</p>
+
+<hr>
+
+<h4><a href="https://thehackernews.com/2026/06/dawn-of-apex-agentic-adversary.html">Dawn of the Apex Agentic Adversary</a></h4>
+<p>This piece posits a shift from human-speed threats to AI agent-driven attacks that operate at machine speed, drastically reducing dwell time and response windows. The traditional patch cycle is becoming obsolete against adversaries leveraging AI agents for rapid exploitation and adaptation. This necessitates a proactive, AI-native defense strategy.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | June 29, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intelligence confirms a significant acceleration in agentic AI threats. The ability of malicious actors to manipulate LLM safety mechanisms via special tokens (MetaBreak) and extract sensitive system prompts (JustAsk) directly compromises foundational AI security. Furthermore, the weaponization of AI agents for surveillance and the exploitation of MCP configurations in tools like Amazon Q Developer demonstrate tangible, high-impact risks. The emergence of AI-driven malware that subverts analysis tools (Gaslight) and the broader trend towards machine-speed adversarial operations demand immediate attention. Organizations must prioritize robust input validation for all AI interactions, implement granular access controls for agentic tools, and develop detection strategies that can identify anomalous agent behavior rather than relying solely on signature-based methods.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting unauthorized system prompt exfiltration attempts by code agents requires monitoring agent tool usage patterns and unexpected data egress. The following KQL query for Microsoft Sentinel aims to identify suspicious activity related to code generation tools that might be attempting to probe or extract sensitive configuration data.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+SecurityEvent
+| where EventID == 4688 // Process Creation
+| where CommandLine contains "openai" or CommandLine contains "anthropic" or CommandLine contains "google.generativeai" // Common AI service indicators
+| where CommandLine contains "api_key" or CommandLine contains "secret" or CommandLine contains "config.json" or CommandLine contains "env" // Keywords for sensitive data
+| extend AgentProcess = split(CommandLine, " ", 0)[0]
+| extend Arguments = substring(CommandLine, strlen(AgentProcess) + 1)
+| where Arguments contains "--output" or Arguments contains "--save" or Arguments contains "--export" // Indicators of data saving/exfiltration
+| project TimeGenerated, Computer, Actor, AgentProcess, Arguments, CommandLine
+</pre>
+
+<hr>
+
+<p style="font-size:12px;color:#9ca3af;">
+Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
+Forward to a practitioner who needs this signal.
+</p>
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published June 29, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
