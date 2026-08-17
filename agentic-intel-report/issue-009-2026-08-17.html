@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - August 17, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | August 17, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p><em>The increasing sophistication of AI agents necessitates robust protocol-level enforcement and runtime governance to mitigate risks from unconstrained actions and data exfiltration.</em></p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.14074">Mandato: Protocol-Level Enforcement of Digitally Signed Mandates on AI Agent Actions with Cryptographically Chained Audit Trails</a></h4>
+<p>Mandato addresses a critical gap in AI agent security by introducing protocol-level enforcement of digitally signed mandates for tool usage. This moves authorization from brittle application code to a verifiable, auditable layer, crucial for preventing unauthorized actions and ensuring evidentiary integrity. Organizations deploying agents that interact with external systems must consider this shift towards cryptographically verifiable authorization.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 17, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.13574">Agentao: A Governed Local-First Runtime for Tool-Using LLM Agents</a></h4>
+<p>Agentao proposes a layered runtime architecture to govern LLM agents that invoke tools and manage local state. By separating action proposals from host-authorized execution, it aims to mitigate risks like prompt injection, tool poisoning, and uncontrolled side effects. This is a key development for securing the execution environment of increasingly capable agents.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 17, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.13662">Ontology-Grounded Project Memory for Coding Agents</a></h4>
+<p>MOOSEDev enhances coding agents with structured, ontology-grounded project memory, capturing architectural decisions and rationales via a Model Context Protocol (MCP) interface. This system aims to improve agent reasoning and provenance tracking, which is vital for understanding the evolution of AI-generated code and its underlying logic. Security implications include better auditability of agent-driven code changes.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 17, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.02345">Can AI Agents Simulate A/B Test Outcomes? A Validation Framework for Agentic Experimentation</a></h4>
+<p>This paper introduces a framework for validating AI agents' ability to simulate A/B test outcomes, separating agent approximation error from subsampling error. While focused on experimentation, the underlying principles of agent behavior modeling and error decomposition are relevant for understanding and predicting agent actions in security contexts, especially for agents interacting with user profiles or system states.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 17, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://thehackernews.com/2026/08/researchers-disclose-ai-assisted.html">Researchers Disclose AI-Assisted SharePoint Exploit Chain Reaching Unauthenticated RCE</a></h4>
+<p>An AI agent was instrumental in discovering an unauthenticated Remote Code Execution (RCE) vulnerability (CVE-2026-55040) in multiple SharePoint versions. This highlights how AI can accelerate exploit discovery and underscores the need for robust security testing that accounts for AI-assisted attack methodologies, particularly against complex enterprise applications.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | August 17, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.14246">Polaris : Multi Agentic System for Conversational Enterprise Analytics</a></h4>
+<p>Polaris presents a multi-agent framework for enterprise analytics, featuring Dynamic Task Coordination (DTC) for real-time agent orchestration. While focused on analytics, the system's adaptive bipartite matching and ReAct-style reasoning demonstrate advanced agent coordination. Understanding such coordination mechanisms is crucial for detecting and defending against sophisticated, multi-agent attacks.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 17, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intel confirms a significant trend: the maturation of AI agent capabilities is outpacing traditional security controls. Mandato and Agentao represent critical steps towards securing agent execution and authorization at the protocol and runtime levels, respectively. The SharePoint RCE, aided by AI, is a stark reminder that AI is not just a defensive tool but also an accelerant for offensive techniques. Organizations must prioritize implementing verifiable authorization mechanisms for AI agents and enhance their detection capabilities to identify sophisticated, multi-agent attack patterns and AI-assisted exploit chains. Focus on auditing agent interactions with critical systems and validating their execution environments.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting unauthorized tool usage by AI agents often requires deep inspection of network traffic and execution logs. The following KQL query for Microsoft Sentinel aims to identify suspicious outbound network connections from common AI/ML service endpoints that might indicate unauthorized data exfiltration or command-and-control activity. This query looks for connections to non-standard ports or unusual destinations originating from hosts running AI workloads.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+SecurityEvent
+| where EventID == 3 // Network Connection Event
+| extend Protocol = tostring(split(parse_json(JsonProperties).Protocol, '/')[0])
+| extend RemoteIP = tostring(split(parse_json(JsonProperties).RemoteAddress, ':')[0])
+| extend RemotePort = toint(split(parse_json(JsonProperties).RemoteAddress, ':')[1])
+| where Protocol =~ "TCP"
+| where RemotePort !in (80, 443, 22, 3389) // Exclude common legitimate ports
+| join kind=inner (
+    DeviceNetworkEvents
+    | where Action == "SYN" and InitiatingProcessFolderPath has_any ("python.exe", "powershell.exe", "cmd.exe") // Heuristic for AI/scripting processes
+    | extend InitiatingProcessName = tostring(split(InitiatingProcessFolderPath, '\\')[-1])
+    | project DeviceName, InitiatingProcessName, InitiatingProcessFolderPath
+) on $left.DeviceName == $right.DeviceName
+| project TimeGenerated, DeviceName, InitiatingProcessName, InitiatingProcessFolderPath, RemoteIP, RemotePort, Protocol
+| summarize count() by DeviceName, InitiatingProcessName, RemoteIP, RemotePort, Protocol
+| where count_ &gt; 2 // Threshold for suspicious activity
+</pre>
+
+<hr>
+
+<p style="font-size:12px;color:#9ca3af;">
+Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
+Forward to a practitioner who needs this signal.
+</p>
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published August 17, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
