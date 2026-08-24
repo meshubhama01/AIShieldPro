@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - August 24, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | August 24, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p><em>The expanding attack surface of agentic AI, driven by MCP integration and sophisticated prompt injection, now directly threatens enterprise data and system integrity.</em></p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://thehackernews.com/2026/08/how-mcp-servers-can-expose-enterprise.html">How MCP Servers Can Expose Enterprise Secrets</a></h4>
+<p>MCP servers, critical for agentic AI integration, present a significant risk due to plaintext configurations and over-permissioned access. Prompt injection attacks can now directly leverage these vulnerabilities to exfiltrate sensitive enterprise data, often undetected until significant damage occurs. Organizations must prioritize hardening MCP deployments and scrutinizing access controls.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | August 24, 2026</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2607.21951">SIREN (Luring LLMs onto the Rocks): PAIR-Driven Preference Manipulation in Web-RAG Recommenders</a></h4>
+<p>This research details a new method, SIREN, for manipulating LLM recommendations by altering retrieved webpages. By adapting PAIR jailbreaking techniques, attackers can subtly influence LLM outputs, turning web-augmented recommenders into vectors for misinformation or malicious product promotion. This highlights the need for robust content validation and source verification in RAG pipelines.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | August 24, 2026</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.21126">TraceGrant: A Contract-Governed Security Framework for the Task-Effect Lifecycle of Networked LLM Agents</a></h4>
+<p>TraceGrant addresses the challenge of indirect prompt injections within networked LLM agents by introducing a contract-governed framework. It focuses on connecting user intent, runtime evidence, and task effects, providing a more holistic defense than current content or tool-call restrictions. This framework is crucial for securing agents that interact with sensitive enterprise data sources.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | August 24, 2026</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.21230">Utility Under Attack: Agent Memory Poisoning and the Limits of Content Screening and Provenance Ranking</a></h4>
+<p>This paper demonstrates the severe impact of agent memory poisoning, showing that even minor insertions of false information can drastically reduce LLM accuracy. Current content screening and provenance ranking methods are insufficient to detect these poisoned memories, as distinguishing truth often requires external grounding. This underscores the need for robust memory integrity checks and validation mechanisms.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | August 24, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://www.darkreading.com/perimeter/new-custody-framework-constrains-ai-agents-inside-network">New CUSTODY Framework Constrains AI Agents Inside the Network</a></h4>
+<p>Jake Williams' CUSTODY framework offers a proactive approach to mitigating risks from agentic AI by enforcing containment within the enterprise network. This development is a direct response to the increasing threat landscape, particularly following recent attacks on AI platforms. Organizations should evaluate such frameworks for their ability to limit agentic AI's external reach and potential for misuse.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: Dark Reading | August 24, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2608.20397">Nexus: Depth-Adaptive KV-Cache Splicing and Retrieval-Decoupled Tool Routing for Agentic LLMs on Unified Memory</a></h4>
+<p>Nexus introduces a novel approach to optimize agentic LLM performance and scalability by decoupling tool routing from schema re-encoding. Its retrieval-based semantic lookaside buffer significantly reduces time-to-first-token and allows for larger tool registries without context window overflow. This research points to architectural shifts that can improve both efficiency and security in MCP-based systems.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | August 24, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2603.27204">MalSkills: Detecting Malicious Skills in the Agentic Supply Chain via Neuro-symbolic Reasoning</a></h4>
+<p>The expansion of reusable "skills" for LLM agents creates an agentic supply chain vulnerable to malicious modules. MalSkills proposes a neuro-symbolic framework to detect these threats by reasoning across heterogeneous artifacts. This highlights the critical need for supply chain security in AI, extending traditional software vulnerability management to AI components.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | August 24, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intelligence confirms a significant escalation in the exploitability of agentic AI systems. MCP server vulnerabilities, coupled with advanced prompt injection techniques like SIREN and memory poisoning, are no longer theoretical threats but direct pathways to data exfiltration and system compromise. The emergence of frameworks like CUSTODY and TraceGrant signals a critical shift towards proactive defense and lifecycle governance for AI agents. Organizations must move beyond basic LLM security to implement robust controls around MCP deployments, agent memory integrity, and the entire agentic supply chain.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting MCP server exposure and potential prompt injection attempts requires monitoring network traffic and configuration changes. This KQL query aims to identify unusual outbound connections from systems potentially running MCP services, which could indicate data exfiltration or command-and-control activity.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+DeviceNetworkEvents
+| where Timestamp > ago(7d)
+| where RemoteIP != "10.0.0.0/8" and RemoteIP != "172.16.0.0/12" and RemoteIP != "192.168.0.0/16" // Exclude private IP ranges
+| where Protocol == "TCP" and RemotePort in (80, 443, 8080, 8443) // Common web/API ports, adjust as needed for known MCP ports
+| summarize count() by DeviceName, RemoteIP, RemotePort, bin(Timestamp, 1h)
+| where count_ > 5 // Threshold for suspicious activity, adjust based on baseline
+| project Timestamp, DeviceName, RemoteIP, RemotePort, Activity = "Potential MCP Data Exfiltration/C2"
+</pre>
+
+<hr>
+
+<p style="font-size:12px;color:#9ca3af;">
+Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
+Forward to a practitioner who needs this signal.
+</p>
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published August 24, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
