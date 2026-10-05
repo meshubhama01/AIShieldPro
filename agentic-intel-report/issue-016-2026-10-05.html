@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - October 05, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | October 05, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p>The proliferation of agentic systems in production environments is rapidly outpacing robust security controls, creating novel attack vectors through indirect prompt injection and compromised tool execution.</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.02861">Containing the Autonomous Operator: A Defense-in-Depth Framework and Reference Architecture for Securing AI Agents on Kubernetes</a></h4>
+<p>This paper addresses the critical challenge of securing AI agents operating within Kubernetes environments. It highlights how agents blur the line between data and control plane, making them susceptible to prompt injection that can alter their execution paths. The core argument is that agents must be treated as potentially compromised, necessitating infrastructure-level security guarantees rather than relying on the LLM as a security boundary.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 05, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2610.03089">Securing Computer-Use Agents Against Branch Steering Attacks</a></h4>
+<p>This research focuses on indirect prompt injection (IPI) in Computer-Use Agents (CUAs) that interact with GUIs and third-party tools. It identifies "branch steering attacks" where dynamic execution paths based on runtime content can be manipulated. The paper critiques the Dual-LLM pattern, suggesting it's insufficient when agents must branch based on anticipated web content, exposing them to sophisticated IPI variants.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 05, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2608.30362">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</a></h4>
+<p>This work refines the threat model for IPI by distinguishing between "covert" and "overt" successes. Covert successes execute injected commands without altering the agent's final output, making them significantly harder for users to detect. This distinction is crucial for understanding the true impact of IPI, as many current metrics may overestimate user awareness.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 05, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2610.03434">Persona Guardrail: A Production-Grade Defense Framework for Agentic Systems</a></h4>
+<p>Persona Guardrail offers a production-ready defense against out-of-domain queries and malicious requests targeting agentic systems. It moves beyond basic prompt injection defenses by enforcing explicit functional boundaries through synchronous input/output validation. This framework aims to ensure agents operate strictly within their intended scope, a critical requirement for enterprise deployments.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 05, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://www.securityweek.com/doxx-net-raises-38-million-to-prevent-ai-agent-on-the-internet-misadventures/">doxx.net Raises $38 Million to Prevent AI Agent-on-the-Internet Misadventures</a></h4>
+<p>doxx.net's new platform aims to mitigate risks associated with AI agents operating autonomously online. The funding signals a growing market need for solutions that prevent agents from causing unintended damage or security breaches while acting under user authority. This indicates a shift towards managing agent behavior in real-world, unconstrained environments.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: SecurityWeek | October 05, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2610.03213">Toward SLM-based agentic task-tool intent matching</a></h4>
+<p>This paper addresses the challenge of ensuring AI agents' tool calls align with task intent, moving beyond simple authorization. It proposes using SLMs for per-call oversight to detect deviations or malicious intent, even when individual calls are permitted. This is crucial for preventing rogue agents from subtly compromising objectives through seemingly valid, but misaligned, tool usage.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 05, 2026</p>
+
+<hr>
+
+<h4><a href="https://arxiv.org/abs/2610.03315">Lightweight, Rubric-Guided Trajectory Evaluation for Production AI Agents</a></h4>
+<p>Evaluating agent trajectories in production is computationally expensive. This work introduces LiteTrajEval, a lightweight architecture that preprocesses trajectories online, identifies heuristic failure signals, and uses a rubric-guided LLM for structured diagnostic reports. This approach enables more frequent and cost-effective reliability checks for production agents.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 05, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intel underscores a critical inflection point: AI agents are no longer confined to sandboxed environments; they are actively engaging with production systems and the internet. The primary threat vector emerging is indirect prompt injection, particularly "covert" variants that bypass user detection by maintaining normal output. Securing these agents requires a defense-in-depth strategy that treats the LLM itself as untrusted, focusing on infrastructure-level controls and strict functional boundary enforcement. The rise of specialized platforms like doxx.net and research into intent matching highlights the urgent need for robust agent governance and monitoring.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting covert indirect prompt injection requires monitoring agent tool calls and comparing them against expected behavior. This KQL query attempts to flag unusual tool invocations within a Kubernetes environment that might indicate an injection, by looking for patterns of tool calls that deviate from typical operational sequences. This is a heuristic and requires tuning based on observed agent behavior.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+ContainerLog
+| where TimeGenerated &gt; ago(7d)
+| where PodName contains "ai-agent" // Adjust to your agent pod naming convention
+| mv-expand ToolCall = parse_json(LogMessage).tool_calls
+| extend ToolName = ToolCall.function.name, Arguments = ToolCall.function.arguments
+| summarize count() by bin(TimeGenerated, 1h), PodName, ToolName, Arguments
+| where ToolName !in ("known_safe_tool_1", "known_safe_tool_2") // Exclude known benign tools
+| summarize TotalCalls=count() by PodName, bin(TimeGenerated, 1h)
+| where TotalCalls &gt; 10 // Heuristic: High volume of tool calls in an hour
+| join kind=inner (
+    ContainerLog
+    | where TimeGenerated &gt; ago(7d)
+    | where PodName contains "ai-agent"
+    | mv-expand ToolCall = parse_json(LogMessage).tool_calls
+    | extend ToolName = ToolCall.function.name, Arguments = ToolCall.function.arguments
+    | where ToolName !in ("known_safe_tool_1", "known_safe_tool_2")
+    | summarize count() by PodName, ToolName, bin(TimeGenerated, 1h)
+    | where count_() &gt; 5 // Heuristic: Specific unusual tool called multiple times
+) on $left.PodName == $right.PodName and $left.bin_TimeGenerated == $right.bin_TimeGenerated
+| project TimeGenerated, PodName, ToolName, Arguments
+| extend Message = strcat("Potential covert IPI: Unusual tool usage detected for agent ", PodName, " with tool ", ToolName)
+</pre>
+
+<hr>
+
+<p style="font-size:12px;color:#9ca3af;">
+Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
+Forward to a practitioner who needs this signal.
+</p>
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published October 05, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
