@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - October 19, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | October 19, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p>The evolving sophistication of agentic frameworks and their interaction with external data sources presents a growing attack surface, demanding deeper inspection of both LLM behavior and the middleware facilitating agentic actions.</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.23726">RedDarwin: Evolving Jailbreak Skills against Frontier LLMs</a></h4>
+<p>This research introduces RedDarwin, an agentic framework that treats attack skills, not just prompts, as evolutionary units. By autonomously revising, composing, and selecting skills based on target model feedback, it demonstrates a significant leap in adaptive jailbreaking capabilities. Practitioners should anticipate more dynamic and resilient prompt injection attacks that learn and adapt in real-time.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 19, 2026</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.22874">Identify, Classify, Act: Per-Instruction Controlled Compliance for LLMs over External Data</a></h4>
+<p>This paper addresses the critical challenge of LLMs processing external data that may contain interleaved legitimate instructions and prompt injections. The proposed EDIC framework enables per-instruction credit attribution, allowing models to differentiate and act on individual directives. This highlights the need for granular control and validation of LLM outputs when interacting with untrusted external information sources.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 19, 2026</p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.23254">Ignored, Not Refused: What Low Prompt-Injection Success Rates Hide in Small Tool-Using Agents</a></h4>
+<p>This study reveals that low reported prompt injection success rates in tool-using agents often mask a higher prevalence of "ignored" attacks rather than outright refusals. This implies that even if an attack doesn't immediately succeed, the agent may not be robustly handling malicious instructions, leaving potential vulnerabilities. System prompt configurations significantly impact this behavior, underscoring the importance of rigorous testing beyond simple success/failure metrics.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 19, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.23449">GatewayBench: Unified Capability and Security Evaluation Platform for MCP Gateways</a></h4>
+<p>The introduction of GatewayBench addresses a critical gap in evaluating Model Context Protocol (MCP) gateways, the middleware connecting AI agents to tools. As these gateways become central to agentic systems, their design directly impacts capability, efficiency, and security. Organizations deploying agents should prioritize evaluating their MCP gateway implementations for potential security weaknesses and capability limitations.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 19, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.22697">What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics</a></h4>
+<p>This paper proposes Intact, a system that enhances agentic web browsing by preserving web semantics and provenance. By representing webpages in a GenTree structure, it aims to prevent LLMs from being misled by injected text that exploits the difference between an element's appearance and its actual function. This is crucial for securing agents that interact with the web, as it moves beyond simple text parsing to understanding the integrity of the information consumed.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 19, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2607.13718">How Agents Ask for Permission: User Permissions for AI Agents, from Interfaces to Enforcement</a></h4>
+<p>This research surveys user-level permission systems for AI agents, highlighting significant gaps in usability, transparency, and user control despite numerous proposals. As agents become more integrated into workflows, the lack of robust, user-centric permission management presents a substantial security and privacy risk. Organizations must focus on implementing granular, user-aware permission controls for agentic actions.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 19, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.22465">Author-in-the-loop Agentic Reproducibility Auditing for a Machine Learning Conference</a></h4>
+<p>This work introduces an agentic system for reproducibility auditing in ML conferences, emphasizing an "author-in-the-loop" approach. By making author declarations explicit inputs and using a two-stage workflow for agent checks and author clarification, it streamlines the reproduction process. While focused on reproducibility, the underlying mechanism of an agent interacting with external code and data, and requiring explicit instructions, has implications for understanding agentic behavior and potential misuse in other contexts.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 19, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intel underscores a critical shift: AI agents are no longer isolated models but complex systems interacting with the external world via increasingly sophisticated middleware like MCP gateways. The RedDarwin research signals an arms race in jailbreaking, moving from static prompts to dynamic, evolving attack strategies. Simultaneously, the work on web semantics and per-instruction compliance highlights the fragility of LLMs when processing untrusted external data, whether it's web content or tool outputs. The prevalence of "ignored" attacks suggests a false sense of security. The overarching risk is the increasing attack surface created by agentic autonomy and their reliance on external data and tools, demanding robust validation at every interaction point. Focus on auditing MCP gateway configurations and implementing granular, context-aware controls for agent actions, especially when processing external inputs.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting indirect prompt injection attempts within tool-use agent logs requires monitoring for unusual tool call patterns or unexpected data processing. This query aims to identify instances where an agent might be processing data that contains hidden instructions, by looking for specific patterns often used in such attacks within the agent's output logs or tool interaction data. This is a generalized example and would need adaptation to specific logging formats and agent behaviors.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+// Example KQL for Microsoft Sentinel to detect potential indirect prompt injection signals
+// This query looks for specific keywords or patterns often found in malicious instructions
+// within agent tool execution logs. It's a starting point and requires tuning.
+
+let AgentToolLogs = materialize(
+    // Replace with your actual table name for agent tool execution logs
+    YourAgentToolExecutionLogTable
+    | where Timestamp between (ago(7d)..now())
+);
+AgentToolLogs
+| where Output contains "ignore previous instructions" or Output contains "disregard all prior commands" or Output contains "execute the following command regardless of previous context"
+| project Timestamp, AgentId, ToolName, Input, Output, Status
+| extend PromptInjectionSignal = iff(Output contains "ignore previous instructions", 1, 0) +
+                               iff(Output contains "disregard all prior commands", 1, 0) +
+                               iff(Output contains "execute the following command regardless of previous context", 1, 0)
+| where PromptInjectionSignal > 0
+| summarize count() by AgentId, ToolName, bin(Timestamp, 1h)
+| order by Timestamp desc
+</pre>
+
+<hr>
+
+<p style="font-size:12px;color:#9ca3af;">
+Agentic Intel Report is published weekly by <a href="https://aishieldpro.com">AIshieldpro.com</a>.
+Forward to a practitioner who needs this signal.
+</p>
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published October 19, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
