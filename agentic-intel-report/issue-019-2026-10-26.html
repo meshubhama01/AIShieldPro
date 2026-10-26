@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Intel Report - October 26, 2026 | AI ShieldPro</title>
+  <meta name="description" content="AI-native threats, jailbreak trends, MCP exposure, and emerging exploit intelligence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060a;
+      --panel: rgba(8, 15, 23, 0.84);
+      --line: rgba(138, 204, 232, 0.16);
+      --text: #f5f8fb;
+      --muted: #93a9b8;
+      --accent: #92f3db;
+      --accent-strong: #4ad8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(74, 216, 255, 0.11), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(146, 243, 219, 0.1), transparent 22%),
+        linear-gradient(160deg, #04070b 0%, #06111a 55%, #020407 100%);
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      pointer-events: none;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 52px;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand, .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .core {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      box-shadow: 0 0 22px rgba(74, 216, 255, 0.7);
+    }
+
+    .back {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(12, 21, 31, 0.92), rgba(6, 11, 18, 0.82)),
+        var(--panel);
+      box-shadow:
+        0 26px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .article::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(146, 243, 219, 0.18), rgba(74, 216, 255, 0.08), rgba(146, 243, 219, 0.12));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", "Manrope", sans-serif;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #dffbf5;
+      font-size: 1.16rem;
+    }
+
+    h4 {
+      margin: 1rem 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    p { color: var(--muted); }
+
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(138, 204, 232, 0.12);
+      margin: 2rem 0;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid rgba(138, 204, 232, 0.14);
+      border-radius: 14px;
+      background: rgba(3, 8, 13, 0.72) !important;
+      color: #dffbf5;
+      padding: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .subscribe {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(146, 243, 219, 0.22);
+      border-radius: 20px;
+      background: rgba(146, 243, 219, 0.07);
+      text-align: center;
+      color: #d6e5ed;
+    }
+
+    .subscribe a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-left: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #031017;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(138, 204, 232, 0.1);
+    }
+
+    @media (max-width: 680px) {
+      .topbar, .footer { align-items: flex-start; flex-direction: column; }
+      .subscribe a { display: flex; margin: 14px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </a>
+      <a class="back" href="/agentic-intel-report/">Back to archive</a>
+    </header>
+
+    <article class="article">
+      <h2>Agentic Intel Report | October 26, 2026</h2>
+<p style="color:#6b7280;font-size:14px;">AI-native threats | Jailbreak trends | Shadow AI | MCP exposure | Emerging exploits</p>
+
+<hr>
+
+<h3>This Week's Signal</h3>
+<p><em>The proliferation of agentic AI frameworks and the underlying Model Context Protocol (MCP) is rapidly expanding the attack surface, enabling sophisticated supply chain compromises and novel evasion techniques.</em></p>
+
+<hr>
+
+<h3>Jailbreak & Prompt Injection</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.31974">Agentic AI Defense: Decode-Time Provenance Binding for MCP</a></h4>
+<p>New research details cross-modal indirect prompt injection via steganography embedded in tool outputs. Attackers can conceal malicious instructions within images decoded by AI agents, bypassing text-based defenses. The proposed decode-time provenance binding mechanism offers a potential mitigation by tracking and validating decoded content provenance.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 26, 2026</p>
+
+<hr>
+
+<h3>MCP & Agentic Threats</h3>
+
+<h4><a href="https://arxiv.org/abs/2606.21037">Honeyquest for LLMs: Rethinking Cyber Deception for AI Attackers</a></h4>
+<p>This study adapts cyber deception frameworks to evaluate LLM attacker capabilities. Findings suggest AI agents exhibit distinct judgment patterns compared to human attackers, necessitating new deception strategies tailored for AI adversaries. Understanding these differences is crucial for designing effective honeypots and traps for agentic threats.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.CR | October 26, 2026</p>
+
+<h4><a href="https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html">China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack</a></h4>
+<p>A China-linked actor leveraged the ARTEX AI agent framework to facilitate a supply chain attack targeting ConnectWise Cloud Backup. This demonstrates the real-world weaponization of agentic AI tools for sophisticated, multi-stage compromises. The use of ARTEX, a Go-based penetration testing framework, highlights the growing threat of AI-assisted offensive operations.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | October 26, 2026</p>
+
+<h4><a href="https://simonwillison.net/2026/Oct/22/donating-agent-skills/">Donating Agent Skills to the Agentic AI Foundation</a></h4>
+<p>Anthropic has donated the Agent Skills standard to the Agentic AI Foundation (AAIF), co-founded with Block and OpenAI. This move aims to foster community-driven, vendor-neutral development of agentic AI capabilities, including the Model Context Protocol (MCP). While promoting standardization, it also centralizes control and potential vulnerabilities within foundational protocols.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: Simon Willison | October 26, 2026</p>
+
+<h4><a href="https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html">OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL</a></h4>
+<p>A vulnerability in the OpenCode AI coding agent allowed compromised MCP servers to execute arbitrary code on developer machines during sign-in. This highlights the critical risk of untrusted MCP server interactions, where malicious agents can leverage developer credentials for system compromise. The flaw underscores the need for robust authentication and authorization for MCP server connections.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | October 26, 2026</p>
+
+<h4><a href="https://thehackernews.com/2026/10/the-harness-is-hard-part-of-agentic.html">The Harness Is the Hard Part of Agentic Pentesting</a></h4>
+<p>This analysis emphasizes that the "harness" surrounding AI models is the critical component for safe and effective agentic penetration testing. While AI can generate attacks, the harness provides essential safety controls, output validation, and actionable reporting. Securing this harness is paramount to prevent unintended consequences and ensure the reliability of AI-driven security assessments.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: The Hacker News | October 26, 2026</p>
+
+<hr>
+
+<h3>Shadow AI & Data Exposure</h3>
+
+<h4><a href="https://arxiv.org/abs/2610.32738">Agentic Hazard Mapper: Emulating Expert Map-Making with AI Agents for Risk Communication</a></h4>
+<p>This paper introduces an agentic system for automated hazard map generation, emulating professional cartographic workflows. While focused on risk communication, the underlying multi-agent system and its data processing capabilities could be repurposed for unauthorized data aggregation or analysis, posing a shadow AI risk if deployed outside approved channels.</p>
+<p style="font-size:12px;color:#9ca3af;">Source: arXiv cs.AI | October 26, 2026</p>
+
+<hr>
+
+<h3>Practitioner Take</h3>
+<p>This week's intel confirms the rapid maturation of agentic AI frameworks, particularly those built around the Model Context Protocol (MCP). The ARTEX incident demonstrates that these tools are no longer theoretical; they are actively being weaponized in supply chain attacks. The steganography research points to sophisticated evasion techniques that bypass traditional content filtering. The OpenCode vulnerability is a stark reminder that even seemingly benign tool integrations can become vectors for direct system compromise. Defenders must prioritize securing the MCP ecosystem, implementing strict validation for tool outputs, and monitoring for unauthorized agentic tool usage. The trend is clear: AI agents are becoming potent offensive tools, and their integration into enterprise workflows requires a commensurate increase in security scrutiny.</p>
+
+<hr>
+
+<h3>Hunt Query of the Week</h3>
+<p>Detecting unauthorized MCP server interactions is critical. This query hunts for network connections to non-standard ports commonly associated with custom AI agent communication, filtering out known legitimate services. Adapt the port list based on your organization's approved AI tool stack.</p>
+<pre style="background:#f3f4f6;padding:12px;border-radius:6px;font-size:13px;">
+DeviceNetworkEvents
+| where RemotePort !in (80, 443, 22, 3389, 53, 123, 161, 1194, 5000, 5001, 8080, 8443, 9000, 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097, 9098, 9099, 10000, 10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010, 10011, 10012, 10013, 10014, 10015, 10016, 10017, 10018, 10019, 10020, 10021, 10022, 10023, 10024, 10025, 10026, 10027, 10028, 10029, 10030, 10031, 10032, 10033, 10034, 10035, 10036, 10037, 10038, 10039, 10040, 10041, 10042, 10043, 10044, 10045, 10046, 10047, 10048, 10049, 10050, 10051, 10052, 10053, 10054, 10055, 10056, 10057, 10058, 10059, 10060, 10061, 10062, 10063, 10064, 10065, 10066, 10067, 10068, 10069, 10070, 10071, 10072, 10073, 10074, 10075, 10076, 10077, 10078, 10079, 10080, 10081, 10082, 10083, 10084, 10085, 10086, 10087, 10088, 10089, 10090, 10091, 10092, 10093, 10094, 10095, 10096, 10097, 10098, 10099, 10100, 10101, 10102, 10103, 10104, 10105, 10106, 10107, 10108, 10109, 10110, 10111, 10112, 10113, 10114, 10115, 10116, 10117, 10118, 10119, 10120, 10121, 10122, 10123, 10124, 10125, 10126, 10127, 10128, 10129, 10130, 10131, 10132, 10133, 10134, 10135, 10136, 10137, 10138, 10139, 10140, 10141, 10142, 10143, 10144, 10145, 10146, 10147, 10148, 10149, 10150, 10151, 10152, 10153, 10154, 10155, 10156, 10157, 10158, 10159, 10160, 10161, 10162, 10163, 10164, 10165, 10166, 10167, 10168, 10169, 10170, 10171, 10172, 10173, 10174, 10175, 10176, 10177, 10178, 10179, 10180, 10181, 10182, 10183, 10184, 10185, 10186, 10187, 10188, 10189, 10190, 10191, 10192, 10193, 10194, 10195, 10196, 10197, 10198, 10199, 10200, 10201, 10202, 10203, 10204, 10205, 10206, 10207, 10208, 10209, 10210, 10211, 10212, 10213, 10214, 10215, 10216, 10217, 10218, 10219, 10220, 10221, 10222, 10223, 10224, 10225, 10226, 10227, 10228, 10229, 10230, 10231, 10232, 10233, 10234, 10235, 10236, 10237, 10238, 10239, 10240, 10241, 10242, 10243, 10244, 10245, 10246, 10247, 10248, 10249, 10250, 10251, 10252, 10253, 10254, 10255, 10256, 10257, 10258, 10259, 10260, 10261, 10262, 10263, 10264, 10265, 10266, 10267, 10268, 10269, 10270, 10271, 10272, 10273, 10274, 10275, 10276, 10277, 10278, 10279, 10280, 10281, 10282, 10283, 10284, 10285, 10286, 10287, 10288, 10289, 10290, 10291, 10292, 10293, 10294, 10295, 10296, 10297, 10298, 10299, 10300, 10301, 10302, 10303, 10304, 10305, 10306, 10307, 10308, 10309, 10310, 10311, 10312, 10313, 10314, 10315, 10316, 10317, 10318, 10319, 10320, 10321, 10322, 10323, 10324, 10325, 10326, 10327, 10328, 10329, 10330, 10331, 10332, 10333, 10334, 10335, 10336, 10337, 10338, 10339, 10340, 10341, 10342, 10343, 10344, 10345, 10346, 10347, 10348, 10349,
+
+      <div class="subscribe">
+        Get this briefing in your inbox every week
+        <a href="https://shubhams-newsletter-77e3c7.beehiiv.com/subscribe">Subscribe free</a>
+      </div>
+
+      <p class="meta">Published October 26, 2026 |
+        <a href="https://aishieldpro.com">AIShieldPro.com</a>
+      </p>
+    </article>
+
+    <footer class="footer">
+      <div class="brand">
+        <span class="core"></span>
+        <span>AI ShieldPro</span>
+      </div>
+      <p>TM 2026 AI ShieldPro. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
